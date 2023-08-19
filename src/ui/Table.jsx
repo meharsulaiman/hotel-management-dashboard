@@ -85,7 +85,10 @@ function Row({ children }) {
     </StyledRow>
   );
 }
-function Body({ children }) {}
+function Body({ data, render }) {
+  if (!data.length) return <Empty>No cabins found</Empty>;
+  return <StyledBody>{data.map(render)}</StyledBody>;
+}
 
 Table.Row = Row;
 Table.Body = Body;
